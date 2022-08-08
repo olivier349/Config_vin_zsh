@@ -1,0 +1,11 @@
+[200~function next()
+{
+	    if [ $(ls .. | wc -l | tr -d ' ') -lt 10 ]
+		        then
+				        mkdir ../ex0$(ls .. | wc -l | tr -d ' ') && cd $_
+					    else
+						            mkdir ../ex$(ls .. | wc -l | tr -d ' ') && cd $_
+							        fi;
+								    vim $1.c
+							    }
+						    alias next="next"

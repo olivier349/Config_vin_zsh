@@ -1,0 +1,94 @@
+
+
+										/* speudo aliase et Apout pour vim et zsh  */
+						/* Je mets c'est commande confige pour me rappeler que j'ai ça, si un jour je trouve que j'en ai utiliter */
+Lien utile :
+	https://vimhelp.org/intro.txt.html?#key-notation
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////// Vim \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+syntax on
+
+set nu
+set mouse=a
+
+/*Maping save double carractaire spécial C pour faire + ou - comme sur VsCode*/
+	
+	inoremap ds <Esc>
+	noremap ds i
+
+	inoremap q <C-n>
+
+	inoremap ss <Esc>:w<Enter>
+	inoremap sw <Esc>:wq<Enter>
+	noremap ss <Esc>:w<Enter>
+	noremap sw <Esc>:wq<Enter>
+
+	inoremap pri printf("%i\n", );<Left><Left>
+	inoremap prs printf("%s\n", );<Left><Left>
+	inoremap prc printf("%c\n", );<Left><Left>
+	inoremap ( ()<Left>
+	inoremap " ""<Left>
+	inoremap { {}<Left>
+	inoremap [ []<Left>
+	inoremap ' ''<Left>
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////// Zsh \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+								²				/* Aliase */
+
+// sert à creér un nouveau dossier dans le répertoire parrent et créer dans le doissier et ouvre un vim du nom choisie// Il à étais créé pour 42, pour un autre usage il faudra le modifier//
+
+function next()
+{
+    if [ $(ls .. | wc -l | tr -d ' ') -lt 10 ]
+    then
+        mkdir ../ex0$(ls .. | wc -l | tr -d ' ') && cd $_
+    else
+        mkdir ../ex$(ls .. | wc -l | tr -d ' ') && cd $_
+    fi;
+    vim $1.c
+}
+alias next="next"     // Exemple de ceux que cela fait : cd../mkdir nomDosier+1/cd nomDossier+1/vim NomDossier+1// 
+
